@@ -10649,6 +10649,41 @@ var IconReload = (0,_createReactComponent_js__WEBPACK_IMPORTED_MODULE_0__["defau
 
 /***/ }),
 
+/***/ "./node_modules/@tabler/icons-react/dist/esm/icons/IconTrash.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@tabler/icons-react/dist/esm/icons/IconTrash.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IconTrash)
+/* harmony export */ });
+/* harmony import */ var _createReactComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createReactComponent.js */ "./node_modules/@tabler/icons-react/dist/esm/createReactComponent.js");
+/**
+ * @tabler/icons-react v2.19.0 - MIT
+ */
+
+
+
+var IconTrash = (0,_createReactComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])("trash", "IconTrash", [
+  ["path", { d: "M4 7l16 0", key: "svg-0" }],
+  ["path", { d: "M10 11l0 6", key: "svg-1" }],
+  ["path", { d: "M14 11l0 6", key: "svg-2" }],
+  [
+    "path",
+    { d: "M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12", key: "svg-3" }
+  ],
+  ["path", { d: "M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3", key: "svg-4" }]
+]);
+
+
+//# sourceMappingURL=IconTrash.js.map
+
+
+/***/ }),
+
 /***/ "./src/components/account/Account.js":
 /*!*******************************************!*\
   !*** ./src/components/account/Account.js ***!
@@ -10871,9 +10906,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/TextInput/TextInput.js");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Text/Text.js");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Textarea/Textarea.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/ActionIcon/ActionIcon.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPhotoPlus.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconEye.js");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconTrash.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.js");
 
 
 
@@ -10984,9 +11021,21 @@ const Profile = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
     fw: 500,
     fz: "sm"
-  }, "Education"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
+  }, "Education"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
+    align: "center",
+    gap: "16px"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+    placeholder: "Write your institute name here",
+    style: {
+      width: "100%"
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_15__.ActionIcon, {
+    variant: "transparent"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    size: "1.25rem"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
     variant: "subtle",
-    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_17__["default"], {
       size: "1.25rem"
     }),
     compact: true
@@ -10996,9 +11045,21 @@ const Profile = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
     fw: 500,
     fz: "sm"
-  }, "Achievement's"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
+  }, "Achievements"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
+    align: "center",
+    gap: "16px"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+    placeholder: "Write your achievements here",
+    style: {
+      width: "100%"
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_15__.ActionIcon, {
+    variant: "transparent"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    size: "1.25rem"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
     variant: "subtle",
-    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_17__["default"], {
       size: "1.25rem"
     }),
     compact: true

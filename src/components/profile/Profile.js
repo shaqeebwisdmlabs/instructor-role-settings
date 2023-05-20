@@ -10,8 +10,14 @@ import {
 	Text,
 	Textarea,
 	Group,
+	ActionIcon,
 } from "@mantine/core";
-import { IconPhotoPlus, IconEye, IconPlus } from "@tabler/icons-react";
+import {
+	IconPhotoPlus,
+	IconEye,
+	IconPlus,
+	IconTrash,
+} from "@tabler/icons-react";
 
 const Profile = () => {
 	const [file, setFile] = useState(null);
@@ -110,6 +116,15 @@ const Profile = () => {
 						<Text fw={500} fz="sm">
 							Education
 						</Text>
+						<Flex align="center" gap="16px">
+							<TextInput
+								placeholder="Write your institute name here"
+								style={{ width: "100%" }}
+							/>
+							<ActionIcon variant="transparent">
+								<IconTrash size="1.25rem" />
+							</ActionIcon>
+						</Flex>
 						<div>
 							<Button
 								variant="subtle"
@@ -122,8 +137,17 @@ const Profile = () => {
 					</Flex>
 					<Flex direction="column" gap="md">
 						<Text fw={500} fz="sm">
-							Achievement's
+							Achievements
 						</Text>
+						<Flex align="center" gap="16px">
+							<TextInput
+								placeholder="Write your achievements here"
+								style={{ width: "100%" }}
+							/>
+							<ActionIcon variant="transparent">
+								<IconTrash size="1.25rem" />
+							</ActionIcon>
+						</Flex>
 						<div>
 							<Button
 								variant="subtle"
