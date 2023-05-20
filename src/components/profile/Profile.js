@@ -21,6 +21,44 @@ import {
 
 const Profile = () => {
 	const [file, setFile] = useState(null);
+	const [educationFields, setEducationFields] = useState([]);
+	const [achievementFields, setAchievementFields] = useState([]);
+
+	const handleInputChange = (type, index, event) => {
+		if (type === "education") {
+			const values = [...educationFields];
+			values[index].value = event.target.value;
+			setEducationFields(values);
+		} else if (type === "achievement") {
+			const values = [...achievementFields];
+			values[index].value = event.target.value;
+			setAchievementFields(values);
+		}
+	};
+
+	const handleAddField = (type) => {
+		if (type === "education") {
+			setEducationFields([...educationFields, { value: "" }]);
+		} else if (type === "achievement") {
+			setAchievementFields([...achievementFields, { value: "" }]);
+		}
+	};
+
+	const handleRemoveField = (type, index) => {
+		if (type === "education") {
+			const values = [...educationFields];
+			values.splice(index, 1);
+			setEducationFields(values);
+		} else if (type === "achievement") {
+			const values = [...achievementFields];
+			values.splice(index, 1);
+			setAchievementFields(values);
+		}
+	};
+
+	const handleFileChange = (event) => {
+		setFile(URL.createObjectURL(event));
+	};
 
 	return (
 		<>
@@ -37,13 +75,17 @@ const Profile = () => {
 				<Stack>
 					<Flex align="center" gap="32px">
 						<Image
-							width={120}
-							height={120}
+							width={100}
+							height={100}
 							src={file}
 							alt="With default placeholder"
 							withPlaceholder
 						/>
-						<FileButton onChange={setFile} accept="image/png,image/jpeg">
+
+						<FileButton
+							onChange={(event) => handleFileChange(event)}
+							accept="image/png,image/jpeg"
+						>
 							{(props) => (
 								<Button
 									{...props}
@@ -51,10 +93,21 @@ const Profile = () => {
 									leftIcon={<IconPhotoPlus size="1rem" />}
 									compact
 								>
-									Set a profile picture
+									{!file ? "Set a profile picture" : "Replace"}
 								</Button>
 							)}
 						</FileButton>
+						{file && (
+							<Button
+								variant="subtle"
+								leftIcon={<IconTrash size="1rem" />}
+								compact
+								color="red"
+								onClick={() => setFile(null)}
+							>
+								Remove
+							</Button>
+						)}
 					</Flex>
 					<Group spacing="lg" align="flex-start" grow>
 						<TextInput placeholder="First name" label="First name" />
@@ -116,20 +169,30 @@ const Profile = () => {
 						<Text fw={500} fz="sm">
 							Education
 						</Text>
-						<Flex align="center" gap="16px">
-							<TextInput
-								placeholder="Write your institute name here"
-								style={{ width: "100%" }}
-							/>
-							<ActionIcon variant="transparent">
-								<IconTrash size="1.25rem" />
-							</ActionIcon>
-						</Flex>
+						{educationFields.map((field, index) => (
+							<Flex align="center" gap="16px" key={index}>
+								<TextInput
+									value={field.value}
+									placeholder="Write your institute name here"
+									style={{ width: "100%" }}
+									onChange={(event) =>
+										handleInputChange("education", index, event)
+									}
+								/>
+								<ActionIcon
+									variant="transparent"
+									onClick={() => handleRemoveField("education", index)}
+								>
+									<IconTrash size="1.25rem" />
+								</ActionIcon>
+							</Flex>
+						))}
 						<div>
 							<Button
 								variant="subtle"
 								leftIcon={<IconPlus size="1.25rem" />}
 								compact
+								onClick={() => handleAddField("education")}
 							>
 								Add new education
 							</Button>
@@ -139,20 +202,30 @@ const Profile = () => {
 						<Text fw={500} fz="sm">
 							Achievements
 						</Text>
-						<Flex align="center" gap="16px">
-							<TextInput
-								placeholder="Write your achievements here"
-								style={{ width: "100%" }}
-							/>
-							<ActionIcon variant="transparent">
-								<IconTrash size="1.25rem" />
-							</ActionIcon>
-						</Flex>
+						{achievementFields.map((field, index) => (
+							<Flex align="center" gap="16px" key={index}>
+								<TextInput
+									value={field.value}
+									placeholder="Write your achievements here"
+									style={{ width: "100%" }}
+									onChange={(event) =>
+										handleInputChange("achievement", index, event)
+									}
+								/>
+								<ActionIcon
+									variant="transparent"
+									onClick={() => handleRemoveField("achievement", index)}
+								>
+									<IconTrash size="1.25rem" />
+								</ActionIcon>
+							</Flex>
+						))}
 						<div>
 							<Button
 								variant="subtle"
 								leftIcon={<IconPlus size="1.25rem" />}
 								compact
+								onClick={() => handleAddField("achievement")}
 							>
 								Add new achievement
 							</Button>

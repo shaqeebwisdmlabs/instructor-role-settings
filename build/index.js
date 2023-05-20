@@ -10902,14 +10902,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Image/Image.js");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/FileButton/FileButton.js");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Button/Button.js");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Group/Group.js");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/TextInput/TextInput.js");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Text/Text.js");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Textarea/Textarea.js");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/ActionIcon/ActionIcon.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Group/Group.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/TextInput/TextInput.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Text/Text.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/Textarea/Textarea.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/ActionIcon/ActionIcon.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPhotoPlus.js");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconEye.js");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconTrash.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconTrash.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconEye.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.js");
 
 
@@ -10918,6 +10918,44 @@ __webpack_require__.r(__webpack_exports__);
 
 const Profile = () => {
   const [file, setFile] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
+  const [educationFields, setEducationFields] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
+  const [achievementFields, setAchievementFields] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
+  const handleInputChange = (type, index, event) => {
+    if (type === "education") {
+      const values = [...educationFields];
+      values[index].value = event.target.value;
+      setEducationFields(values);
+    } else if (type === "achievement") {
+      const values = [...achievementFields];
+      values[index].value = event.target.value;
+      setAchievementFields(values);
+    }
+  };
+  const handleAddField = type => {
+    if (type === "education") {
+      setEducationFields([...educationFields, {
+        value: ""
+      }]);
+    } else if (type === "achievement") {
+      setAchievementFields([...achievementFields, {
+        value: ""
+      }]);
+    }
+  };
+  const handleRemoveField = (type, index) => {
+    if (type === "education") {
+      const values = [...educationFields];
+      values.splice(index, 1);
+      setEducationFields(values);
+    } else if (type === "achievement") {
+      const values = [...achievementFields];
+      values.splice(index, 1);
+      setAchievementFields(values);
+    }
+  };
+  const handleFileChange = event => {
+    setFile(URL.createObjectURL(event));
+  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Box, {
     sx: theme => ({
       backgroundColor: "white",
@@ -10930,13 +10968,13 @@ const Profile = () => {
     align: "center",
     gap: "32px"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Image, {
-    width: 120,
-    height: 120,
+    width: 100,
+    height: 100,
     src: file,
     alt: "With default placeholder",
     withPlaceholder: true
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.FileButton, {
-    onChange: setFile,
+    onChange: event => handleFileChange(event),
     accept: "image/png,image/jpeg"
   }, props => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
     variant: "subtle",
@@ -10944,40 +10982,48 @@ const Profile = () => {
       size: "1rem"
     }),
     compact: true
-  }), "Set a profile picture"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_10__.Group, {
+  }), !file ? "Set a profile picture" : "Replace")), file && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
+    variant: "subtle",
+    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      size: "1rem"
+    }),
+    compact: true,
+    color: "red",
+    onClick: () => setFile(null)
+  }, "Remove")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.Group, {
     spacing: "lg",
     align: "flex-start",
     grow: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "First name",
     label: "First name"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Last name",
     label: "Last name"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_10__.Group, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.Group, {
     spacing: "lg",
     align: "flex-start",
     grow: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Nick name",
     label: "Nick name"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Display name publicly as",
     label: "Display name"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_10__.Group, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.Group, {
     spacing: "lg",
     align: "flex-start",
     grow: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "User name",
     label: "User name"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_13__.Text, {
     fz: "xs",
     color: "#868E96"
-  }, "Username cannot be changed")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }, "Username cannot be changed")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Email",
     label: "Email here"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Your website",
     label: "Your website"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
@@ -11006,76 +11052,86 @@ const Profile = () => {
     justify: "space-between"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h4", null, "Profile page info"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
     variant: "subtle",
-    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_14__["default"], {
       size: "1.25rem"
     }),
     compact: true
-  }, "View profile page")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Stack, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
+  }, "View profile page")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Stack, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_13__.Text, {
     fw: 500
-  }, "Introduction Section"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_14__.Textarea, {
+  }, "Introduction Section"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_15__.Textarea, {
     placeholder: "Write your bio here",
     label: "Bio"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
     direction: "column",
     gap: "md"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_13__.Text, {
     fw: 500,
     fz: "sm"
-  }, "Education"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
+  }, "Education"), educationFields.map((field, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
     align: "center",
-    gap: "16px"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+    gap: "16px",
+    key: index
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
+    value: field.value,
     placeholder: "Write your institute name here",
     style: {
       width: "100%"
-    }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_15__.ActionIcon, {
-    variant: "transparent"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    },
+    onChange: event => handleInputChange("education", index, event)
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_16__.ActionIcon, {
+    variant: "transparent",
+    onClick: () => handleRemoveField("education", index)
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
     size: "1.25rem"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
     variant: "subtle",
     leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_17__["default"], {
       size: "1.25rem"
     }),
-    compact: true
+    compact: true,
+    onClick: () => handleAddField("education")
   }, "Add new education"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
     direction: "column",
     gap: "md"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_13__.Text, {
     fw: 500,
     fz: "sm"
-  }, "Achievements"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
+  }, "Achievements"), achievementFields.map((field, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Flex, {
     align: "center",
-    gap: "16px"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+    gap: "16px",
+    key: index
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
+    value: field.value,
     placeholder: "Write your achievements here",
     style: {
       width: "100%"
-    }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_15__.ActionIcon, {
-    variant: "transparent"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    },
+    onChange: event => handleInputChange("achievement", index, event)
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_16__.ActionIcon, {
+    variant: "transparent",
+    onClick: () => handleRemoveField("achievement", index)
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
     size: "1.25rem"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
     variant: "subtle",
     leftIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_17__["default"], {
       size: "1.25rem"
     }),
-    compact: true
-  }, "Add new achievement"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.Text, {
+    compact: true,
+    onClick: () => handleAddField("achievement")
+  }, "Add new achievement"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_13__.Text, {
     fw: 500
-  }, "Social media links"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_10__.Group, {
+  }, "Social media links"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.Group, {
     spacing: "lg",
     align: "flex-start",
     grow: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Your Facebook link here",
     label: "Facebook"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Your Twitter link here",
     label: "Twitter"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_11__.TextInput, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_12__.TextInput, {
     placeholder: "Your YouTube link here",
     label: "YouTube"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
