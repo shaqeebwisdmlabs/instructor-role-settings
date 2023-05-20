@@ -13991,24 +13991,24 @@ const Settings = () => {
       fontFamily: "Open Sans, sans-serif"
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs, {
-    defaultValue: "gallery"
+    defaultValue: "profile"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.List, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.Tab, {
-    value: "gallery",
+    value: "profile",
     fw: 500
   }, "Profile"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.Tab, {
-    value: "messages",
+    value: "paypal",
     fw: 500
   }, "Paypal"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.Tab, {
-    value: "settings",
+    value: "account",
     fw: 500
   }, "Account")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.Panel, {
-    value: "gallery",
+    value: "profile",
     pt: "xs"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_profile_Profile__WEBPACK_IMPORTED_MODULE_2__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.Panel, {
-    value: "messages",
+    value: "paypal",
     pt: "xs"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_paypal_Paypal__WEBPACK_IMPORTED_MODULE_3__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Tabs.Panel, {
-    value: "settings",
+    value: "account",
     pt: "xs"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_account_Account__WEBPACK_IMPORTED_MODULE_4__["default"], null))));
 };

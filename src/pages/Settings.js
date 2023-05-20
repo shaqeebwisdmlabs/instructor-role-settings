@@ -12,28 +12,28 @@ const Settings = () => {
 				fontFamily: "Open Sans, sans-serif",
 			}}
 		>
-			<Tabs defaultValue="gallery">
+			<Tabs defaultValue="profile">
 				<Tabs.List>
-					<Tabs.Tab value="gallery" fw={500}>
+					<Tabs.Tab value="profile" fw={500}>
 						Profile
 					</Tabs.Tab>
-					<Tabs.Tab value="messages" fw={500}>
+					<Tabs.Tab value="paypal" fw={500}>
 						Paypal
 					</Tabs.Tab>
-					<Tabs.Tab value="settings" fw={500}>
+					<Tabs.Tab value="account" fw={500}>
 						Account
 					</Tabs.Tab>
 				</Tabs.List>
 
-				<Tabs.Panel value="gallery" pt="xs">
+				<Tabs.Panel value="profile" pt="xs">
 					<Profile />
 				</Tabs.Panel>
 
-				<Tabs.Panel value="messages" pt="xs">
+				<Tabs.Panel value="paypal" pt="xs">
 					<Paypal />
 				</Tabs.Panel>
 
-				<Tabs.Panel value="settings" pt="xs">
+				<Tabs.Panel value="account" pt="xs">
 					<Account />
 				</Tabs.Panel>
 			</Tabs>
