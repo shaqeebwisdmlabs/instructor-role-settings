@@ -5,6 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps } from "@wordpress/block-editor";
+import Settings from "./pages/Settings";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -17,10 +18,8 @@ import { useBlockProps } from "@wordpress/block-editor";
  */
 export default function save() {
 	return (
-		<MantineProvider withGlobalStyles withNormalizeCSS>
-			<div {...useBlockProps.save()}>
-				{"Instructor Role Settings – hello from the saved content!"}
-			</div>
-		</MantineProvider>
+		<div>
+			<div className="profile-page-frontend"></div>
+		</div>
 	);
 }

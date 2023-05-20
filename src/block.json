@@ -4,7 +4,7 @@
 	"name": "create-block/instructor-role-settings",
 	"version": "0.1.0",
 	"title": "Instructor Role Settings",
-	"category": "widgets",
+	"category": "layout",
 	"icon": "welcome-learn-more",
 	"description": "Creates settings page for instructor role",
 	"supports": {
@@ -14,5 +14,5 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": ["file:./components/tab/tab.js"]
+	"script": "file:./pages/Settings.js"
 }

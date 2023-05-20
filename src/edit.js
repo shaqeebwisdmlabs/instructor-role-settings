@@ -20,8 +20,7 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
-import { Button, MantineProvider } from "@mantine/core";
-import Tab from "./components/tab/tab";
+import Settings from "./pages/Settings";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -32,12 +31,13 @@ import Tab from "./components/tab/tab";
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+	const blockProps = useBlockProps();
+
 	return (
-		<MantineProvider withGlobalStyles withNormalizeCSS>
-			<div {...useBlockProps()}>
-				<Tab />
-				<Button>Click me!</Button>
+		<div {...blockProps}>
+			<div className="profile-page">
+				<Settings />
 			</div>
-		</MantineProvider>
+		</div>
 	);
 }
